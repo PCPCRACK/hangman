@@ -2,6 +2,7 @@
 
 ```python
 import random
+import os
 
 
 animacion = ['''
@@ -78,6 +79,9 @@ def Palabra_aleatoria(lista_palabras):
 
 # Esta funcion muestra el dibujo del hangman y la interface
 def pantalla(animacion, letras_incorrectas, letras_correctas, palabra_secreta):
+
+    # Limpia el terminal
+    os.system('cls')
     print(animacion[len(letras_incorrectas)])
     print()
 
@@ -198,5 +202,4 @@ def iniciador():
 
 if __name__ == "__main__":
     iniciador()
-
 ```
