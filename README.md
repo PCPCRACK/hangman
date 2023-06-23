@@ -2,6 +2,7 @@
 
 ```python
 
+
 import random
 
 animacion = ['''
@@ -63,8 +64,8 @@ animacion = ['''
 =========''']
 palabras = 'hormiga babuino tejón murciélago oso castor camello gato almeja cobra puma coyote cuervo ciervo perro burro pato águila hurón zorro rana cabra ganso halcón león lagarto llama topo mono alce ratón mula tritón nutria búho panda loro paloma pitón conejo carnero rata cuervo rinoceronte salmón foca tiburón oveja zorrillo perezoso serpiente araña cigüeña cisne tigre sapo trucha pavo tortuga comadreja ballena lobo wombat cebra'.split()
 
+# Esta funcion devuelve un string aleatorio de la lista de strings
 def Palabra_aleatoria(lista_palabras):
-    # This function returns a random string from the passed list of strings.
     indice = random.randint(0, len(lista_palabras) - 1)
     return lista_palabras[indice]
 
@@ -78,34 +79,37 @@ def pantalla(animacion, letras_incorrectas, letras_correctas, palabra_secreta):
     print()
 
     PL_adivinada = ''
-    for i in range(len(palabra_secreta)): # replace PL_adivinada with correctly guessed letters
+
+    # Remplaza PL_adivinada con las letras correctas
+    for i in range(len(palabra_secreta)): 
         if palabra_secreta[i] in letras_correctas:
             PL_adivinada += palabra_secreta[i]
         else:
             PL_adivinada += '_'
 
-    for palabra in PL_adivinada: # show the secret word with spaces in between each palabra
+    # Muestra la palabra secreta con espacios entre cada palabra
+    for palabra in PL_adivinada: 
         print(palabra, end=' ')
     print()
 
-def adivina(adivinado):
-    # Returns the palabra the player entered. This function makes sure the player entered a single palabra, and not something else.
+# Retorna la letra que el jugador ingreso. Esta funcion se asegura de que el jugador ingrese solo una letra y no otra cosa
+def adivina(adivinado):    
     while True:
-        print('Guess a palabra.')
+        print('adivina la palabra.')
         supongo = input().lower()
         if len(supongo) != 1:
-            print('Please enter a single palabra.')
+            print('porfavor ingresa una sola letra.')
         elif supongo in adivinado:
-            print('You have already guessed that palabra. Choose again.')
+            print('Haz adivinado la paralabra. intenta de nuevo.')
         elif supongo not in 'abcdefghijklmnopqrstuvwxyz':
-            print('Please enter a LETTER.')
+            print('porfavor una letra.')
         else:
             return supongo
 
+# Esta funcion retorna verdadero si el jugador quiere jugar otra vez sino retorna falso
 def volver_a_jugar():
-    # This function returns True if the player wants to play again, otherwise it returns False.
-    print('Do you want to play again? (yes or no)')
-    return input().lower().startswith('y')
+    print('Quieres jugar otra vez? (si o no)')
+    return input().lower().startswith('s')
 
 # Mira si el jugador adivino la palabra
 def palabrometro(letras_correctas, palabra_secreta):
@@ -116,15 +120,14 @@ def palabrometro(letras_correctas, palabra_secreta):
             break
     return letras_encontradas
 
-# mira si el jugador perdio
+# mira si adivino muchas veces y perdio
 def contador(letras_incorrectas, palabra_secreta):
-    # Check if player has guessed too many times and lost
     if len(letras_incorrectas) == len(animacion) - 1:
         return True
     return False
             
 def iniciador():
-    """iniciador application entry point."""
+    """Iniciador es el punto de partida de el codigo"""
     letras_incorrectas = ''
     letras_correctas = ''
     G_completado = False
@@ -136,11 +139,11 @@ def iniciador():
 
         if G_completado or G_perdido:
             if G_completado:
-                print('Yes! The secret word is "' + palabra_secreta + '"! You have won!')
+                print('Si la palabra secreta es "' + palabra_secreta + '" !ganaste!')
             else:
-                print('You have run out of guesses!\nAfter ' + str(len(letras_incorrectas)) + ' missed guesses and ' + str(len(letras_correctas)) + ' correct guesses, the word was "' + palabra_secreta + '"')
+                print('haz adivinado demaciadas veces!\ndepues de ' + str(len(letras_incorrectas)) + ' intentos fallaste adivinando, la palabra correcta era "' + palabra_secreta + '"')
 
-            # Ask the player if they want to play again (but only if the game is done).
+            # Pregunta si el jugador quiere volver a jugar, pero solo si el juego acabo
             if volver_a_jugar():
                 letras_incorrectas = ''
                 letras_correctas = ''
@@ -151,7 +154,7 @@ def iniciador():
             else: 
                 break
 
-        # Let the player type in a palabra.
+        # Deja al jugado escribir en palabra
         supongo = adivina(letras_incorrectas + letras_correctas)
         if supongo in palabra_secreta:
             letras_correctas = letras_correctas + supongo
