@@ -1,4 +1,4 @@
-# ahorcado
+#AHORCADO
 
 ```python
 import random
@@ -81,7 +81,7 @@ def Palabra_aleatoria(lista_palabras):
 def pantalla(animacion, letras_incorrectas, letras_correctas, palabra_secreta):
 
     # Limpia el terminal
-    os.system('cls')
+    os.system('clear')
     print(animacion[len(letras_incorrectas)])
     print()
 
@@ -102,6 +102,9 @@ def pantalla(animacion, letras_incorrectas, letras_correctas, palabra_secreta):
     for palabra in PL_adivinada: 
         print(palabra, end=' ')
     print()
+    
+    # muestra el contador al jugador
+    print(f"te quedan {len(animacion)-len(letras_incorrectas)-1} intentos")
 
 
 # Retorna la letra que el jugador ingreso. Esta funcion se asegura de que el jugador ingrese solo una letra y no otra cosa
@@ -112,7 +115,7 @@ def adivina(adivinado):
         if len(supongo) != 1:
             print('porfavor ingresa una sola letra.')
         elif supongo in adivinado:
-            print('Haz adivinado la paralabra. intenta de nuevo.')
+            print('Ya haz adivinado esta letra. intenta de nuevo.')
         elif supongo not in 'abcdefghijklmnopqrstuvwxyz':
             print('porfavor una letra.')
         else:
