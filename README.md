@@ -889,7 +889,8 @@ if __name__ == "__main__":
 
     # Limpia el terminal
     os.system('cls')
-    
+
+    # compara el valor de Idioma
     if Idioma == 1:
         Español()
     elif Idioma == 2:
