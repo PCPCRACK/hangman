@@ -80,15 +80,15 @@ def Español():
         # Indice es igual al valor de un numero aleatorio entero
         indice = random.randint(0, len(lista_palabras) - 1)
             
-        # comprueba el tamaño de la palabra de acuerdo a la Schwierigkeit
+        # comprueba el tamaño de la palabra de acuerdo a la Dificultad
         n = len(lista_palabras[indice])
-        if Schwierigkeit == 1 :
+        if Dificultad == 1 :
             if n <= 5:
                    return lista_palabras[indice]                    
-        elif Schwierigkeit == 2 :
+        elif Dificultad == 2 :
             if n > 5 and 8 > n :
                 return lista_palabras[indice]           
-        elif Schwierigkeit == 3 :
+        elif Dificultad == 3 :
             if 8 <= n :
                 return lista_palabras[indice]
                     
@@ -221,7 +221,7 @@ def Español():
                 # Llama la funcion contador
                 G_perdido = contador(letras_incorrectas, palabra_secreta)
     
-    Schwierigkeit = int(input("Selecciona una dificulatad\n1.Facil\n2.Normal\n3.Dificil\n"))
+    Dificultad = int(input("Selecciona una dificulatad\n1.Facil\n2.Normal\n3.Dificil\n"))
     
     #inicia el codigo llamando la funcion iniciador
     iniciador()
