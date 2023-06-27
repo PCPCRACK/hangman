@@ -1,15 +1,14 @@
-#AHORCADO
-
- 
-CODEBABES
- 
+ # CODEBABES
  [![1.png](https://i.postimg.cc/v8JsrSC7/1.png)](https://postimg.cc/vDtkMXYD)
+ 
+ Busquen el nombre del equipo en youtube si quieren aprender a programar
+ ## Integrantes
+ - DARV
 
-
+ # game
 ```python
 import random
 import os
-
 
 def Español():
     animacion = ['''
