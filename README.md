@@ -13,7 +13,9 @@ import os
 
 if __name__ == "__main__":
     Idioma = int(input("!Hola Bienvenido!\nSelecciona el idioma del juego con el numero que tiene\n1.Español\n2.English\n3.Deutsch\n4.Dothraki(game of thrones language)\n"))
-   
+    
+    # Limpia el terminal
+    os.system('clear')
     
     
     
@@ -87,15 +89,30 @@ if __name__ == "__main__":
         
             # Indice es igual al valor de un numero aleatorio entero
             indice = random.randint(0, len(lista_palabras) - 1)
-        
-            # Retorna la palabra que esta en lista_palabras con valor de indice
-            return lista_palabras[indice]
+            
+            # comprueba el tamaño de la palabra de acuerdo a la Dificultad
+            n = len(lista_palabras[indice])
+            if Dificultad == 1 :
+                if n <= 5:
+                    return lista_palabras[indice]
+                    
+            elif Dificultad == 2 :
+                if n > 5 and 8 > n :
+                    return lista_palabras[indice]
+                    
+            elif Dificultad == 3 :
+                if 8 <= n :
+                    return lista_palabras[indice]
+                    
+            # Si no se cumplen las condiciones se vuelve a llamar a ella misma
+            return Palabra_aleatoria(lista_palabras)
         
         # Esta funcion muestra el dibujo del hangman y la interface
         def pantalla(animacion, letras_incorrectas, letras_correctas, palabra_secreta):
         
             # Limpia el terminal
             os.system('clear')
+            
             print(animacion[len(letras_incorrectas)])
             print()
         
@@ -216,23 +233,22 @@ if __name__ == "__main__":
                     # Llama la funcion contador
                     G_perdido = contador(letras_incorrectas, palabra_secreta)
         
-         Dificultad = input("Selecciona una dificulatad\n1.Facil\n2.Normal\nDificil")
+        Dificultad = int(input("Selecciona una dificulatad\n1.Facil\n2.Normal\n3.Dificil\n"))
         
         #inicia el codigo llamando la funcion iniciador
         iniciador()
             
-    elif :Idioma == 2
+    #elif Idioma == 2:
+        
+    #elif Idioma == 3:
     
-    elif: Idioma == 3 
-    
-    else:
+    #else:
         
         
         
     
     
-    
-    ```
+```
 
 ```python
 import random
