@@ -3,7 +3,7 @@
  
  Busquen el nombre del equipo en youtube si quieren aprender a programar
  ## Integrantes
- - DARV
+ - ppssss yo mero
 
  # game
 ```python
