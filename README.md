@@ -91,6 +91,8 @@ def Español():
         elif Dificultad == 3 :
             if 8 <= n :
                 return lista_palabras[indice]
+        else:
+                    Español()
                     
         # Si no se cumplen las condiciones se vuelve a llamar a ella misma
         return Palabra_aleatoria(lista_palabras)
@@ -309,6 +311,8 @@ def English():
         elif Dificulty == 3 :
             if 8 <= n :
                 return list_words[indice]
+        else:
+                English()
                 
         # If the conditions are not met, it calls itself again
         return Random_word(list_words)
@@ -527,6 +531,8 @@ def Deutsch():
         elif Schwierigkeit == 3 :
             if 8 <= n :
                 return Wortliste[Index]
+        else:
+                Deutsch()
                 
         # Wenn die Bedingungen nicht erfüllt sind, ruft es sich erneut auf
         return Zufalliges_Wort(Wortliste)
@@ -745,6 +751,8 @@ def Français():
         elif Difficulté == 3 :
             if 8 <= n :
                 return liste_de_mots[index]
+        else:
+                Français()
                 
         # Si les conditions ne sont pas remplies, il s'appelle à nouveau
         return Mot_aléatoire(liste_de_mots)
